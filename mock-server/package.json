@@ -1,0 +1,14 @@
+{
+  "name": "helpdesk-mock-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mock API for the Angular practical test",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

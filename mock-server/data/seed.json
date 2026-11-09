@@ -1,0 +1,1592 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "mario.rossi",
+      "password": "password",
+      "fullName": "Mario Rossi",
+      "role": "AGENT"
+    },
+    {
+      "id": 2,
+      "username": "giulia.bianchi",
+      "password": "password",
+      "fullName": "Giulia Bianchi",
+      "role": "AGENT"
+    },
+    {
+      "id": 3,
+      "username": "luca.verdi",
+      "password": "password",
+      "fullName": "Luca Verdi",
+      "role": "AGENT"
+    },
+    {
+      "id": 4,
+      "username": "anna.neri",
+      "password": "password",
+      "fullName": "Anna Neri",
+      "role": "REQUESTER"
+    },
+    {
+      "id": 5,
+      "username": "paolo.gallo",
+      "password": "password",
+      "fullName": "Paolo Gallo",
+      "role": "REQUESTER"
+    },
+    {
+      "id": 6,
+      "username": "sara.conti",
+      "password": "password",
+      "fullName": "Sara Conti",
+      "role": "REQUESTER"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Hardware"
+    },
+    {
+      "id": 2,
+      "name": "Software"
+    },
+    {
+      "id": 3,
+      "name": "Network"
+    },
+    {
+      "id": 4,
+      "name": "Account and access"
+    },
+    {
+      "id": 5,
+      "name": "Other"
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "title": "Laptop does not boot (#1)",
+      "description": "Laptop does not boot. Already tried restarting, no change.",
+      "status": "OPEN",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": null,
+      "reporterId": 5,
+      "createdAt": "2026-09-16T03:22:37.386Z",
+      "updatedAt": "2026-09-16T13:57:07.405Z"
+    },
+    {
+      "id": 2,
+      "title": "Monitor flickering (#2)",
+      "description": "Monitor flickering. Please check as soon as possible, I have a deadline.",
+      "status": "CLOSED",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": 3,
+      "reporterId": 5,
+      "createdAt": "2026-09-08T02:34:56.659Z",
+      "updatedAt": "2026-09-12T11:26:24.179Z"
+    },
+    {
+      "id": 3,
+      "title": "Keyboard keys not working (#3)",
+      "description": "Keyboard keys not working. Please check as soon as possible, I have a deadline.",
+      "status": "CLOSED",
+      "priority": "URGENT",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 5,
+      "createdAt": "2026-09-06T10:40:48.810Z",
+      "updatedAt": "2026-09-07T03:30:19.442Z"
+    },
+    {
+      "id": 4,
+      "title": "Printer offline (#4)",
+      "description": "Printer offline. Please check as soon as possible, I have a deadline.",
+      "status": "OPEN",
+      "priority": "URGENT",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 4,
+      "createdAt": "2026-09-16T12:54:43.873Z",
+      "updatedAt": "2026-09-21T06:05:12.431Z"
+    },
+    {
+      "id": 5,
+      "title": "Docking station not detected (#5)",
+      "description": "Docking station not detected. Please check as soon as possible, I have a deadline.",
+      "status": "RESOLVED",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": 3,
+      "reporterId": 6,
+      "createdAt": "2026-10-03T05:41:44.996Z",
+      "updatedAt": "2026-10-07T09:17:27.830Z"
+    },
+    {
+      "id": 6,
+      "title": "Battery drains quickly (#6)",
+      "description": "Battery drains quickly. Already tried restarting, no change.",
+      "status": "OPEN",
+      "priority": "LOW",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 6,
+      "createdAt": "2026-10-14T02:48:36.109Z",
+      "updatedAt": "2026-10-19T01:38:40.286Z"
+    },
+    {
+      "id": 7,
+      "title": "Application crashes on startup (#7)",
+      "description": "Application crashes on startup. It happens a few times per day, always at random moments.",
+      "status": "OPEN",
+      "priority": "MEDIUM",
+      "categoryId": 2,
+      "assigneeId": null,
+      "reporterId": 4,
+      "createdAt": "2026-10-06T14:57:26.926Z",
+      "updatedAt": "2026-10-10T15:30:53.159Z"
+    },
+    {
+      "id": 8,
+      "title": "Cannot install update (#8)",
+      "description": "Cannot install update. Please check as soon as possible, I have a deadline.",
+      "status": "OPEN",
+      "priority": "URGENT",
+      "categoryId": 2,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-09-21T00:54:51.861Z",
+      "updatedAt": "2026-09-25T10:51:30.022Z"
+    },
+    {
+      "id": 9,
+      "title": "Spreadsheet macro fails (#9)",
+      "description": "Spreadsheet macro fails. It started this morning and it blocks my work.",
+      "status": "CLOSED",
+      "priority": "URGENT",
+      "categoryId": 2,
+      "assigneeId": 3,
+      "reporterId": 4,
+      "createdAt": "2026-09-08T18:16:38.471Z",
+      "updatedAt": "2026-09-13T15:52:25.589Z"
+    },
+    {
+      "id": 10,
+      "title": "Email client slow (#10)",
+      "description": "Email client slow. It started this morning and it blocks my work.",
+      "status": "OPEN",
+      "priority": "HIGH",
+      "categoryId": 2,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-09-08T02:46:26.921Z",
+      "updatedAt": "2026-09-10T15:52:55.790Z"
+    },
+    {
+      "id": 11,
+      "title": "License expired (#11)",
+      "description": "License expired. Please check as soon as possible, I have a deadline.",
+      "status": "CLOSED",
+      "priority": "HIGH",
+      "categoryId": 2,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-09-14T15:18:46.083Z",
+      "updatedAt": "2026-09-18T02:37:36.400Z"
+    },
+    {
+      "id": 12,
+      "title": "Browser keeps freezing (#12)",
+      "description": "Browser keeps freezing. A colleague has the same issue.",
+      "status": "CLOSED",
+      "priority": "MEDIUM",
+      "categoryId": 2,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-09-08T13:51:28.734Z",
+      "updatedAt": "2026-09-11T06:38:07.997Z"
+    },
+    {
+      "id": 13,
+      "title": "VPN disconnects every hour (#13)",
+      "description": "VPN disconnects every hour. Please check as soon as possible, I have a deadline.",
+      "status": "CLOSED",
+      "priority": "LOW",
+      "categoryId": 3,
+      "assigneeId": 1,
+      "reporterId": 5,
+      "createdAt": "2026-09-05T15:14:36.561Z",
+      "updatedAt": "2026-09-09T18:19:49.718Z"
+    },
+    {
+      "id": 14,
+      "title": "Wi-Fi unstable in meeting room (#14)",
+      "description": "Wi-Fi unstable in meeting room. It started this morning and it blocks my work.",
+      "status": "IN_PROGRESS",
+      "priority": "HIGH",
+      "categoryId": 3,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-21T10:59:05.153Z",
+      "updatedAt": "2026-10-26T00:38:13.002Z"
+    },
+    {
+      "id": 15,
+      "title": "Cannot reach shared drive (#15)",
+      "description": "Cannot reach shared drive. Already tried restarting, no change.",
+      "status": "IN_PROGRESS",
+      "priority": "HIGH",
+      "categoryId": 3,
+      "assigneeId": 2,
+      "reporterId": 5,
+      "createdAt": "2026-10-09T21:05:29.008Z",
+      "updatedAt": "2026-10-11T17:05:35.341Z"
+    },
+    {
+      "id": 16,
+      "title": "Slow internet in the morning (#16)",
+      "description": "Slow internet in the morning. Already tried restarting, no change.",
+      "status": "CLOSED",
+      "priority": "LOW",
+      "categoryId": 3,
+      "assigneeId": 3,
+      "reporterId": 5,
+      "createdAt": "2026-09-14T21:52:46.529Z",
+      "updatedAt": "2026-09-16T19:27:34.036Z"
+    },
+    {
+      "id": 17,
+      "title": "Password reset request (#17)",
+      "description": "Password reset request. It happens a few times per day, always at random moments.",
+      "status": "RESOLVED",
+      "priority": "HIGH",
+      "categoryId": 4,
+      "assigneeId": 3,
+      "reporterId": 6,
+      "createdAt": "2026-10-26T11:47:05.025Z",
+      "updatedAt": "2026-10-26T14:49:39.939Z"
+    },
+    {
+      "id": 18,
+      "title": "Account locked (#18)",
+      "description": "Account locked. Already tried restarting, no change.",
+      "status": "RESOLVED",
+      "priority": "LOW",
+      "categoryId": 4,
+      "assigneeId": 2,
+      "reporterId": 6,
+      "createdAt": "2026-10-19T23:10:25.713Z",
+      "updatedAt": "2026-10-21T12:13:51.208Z"
+    },
+    {
+      "id": 19,
+      "title": "Need access to project folder (#19)",
+      "description": "Need access to project folder. Already tried restarting, no change.",
+      "status": "IN_PROGRESS",
+      "priority": "HIGH",
+      "categoryId": 4,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-29T08:09:28.714Z",
+      "updatedAt": "2026-10-29T12:45:07.055Z"
+    },
+    {
+      "id": 20,
+      "title": "Two-factor code not received (#20)",
+      "description": "Two-factor code not received. It started this morning and it blocks my work.",
+      "status": "CLOSED",
+      "priority": "HIGH",
+      "categoryId": 4,
+      "assigneeId": 3,
+      "reporterId": 5,
+      "createdAt": "2026-10-14T06:24:18.056Z",
+      "updatedAt": "2026-10-16T19:08:01.498Z"
+    },
+    {
+      "id": 21,
+      "title": "Request for second monitor (#21)",
+      "description": "Request for second monitor. A colleague has the same issue.",
+      "status": "CLOSED",
+      "priority": "LOW",
+      "categoryId": 5,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-30T18:57:06.675Z",
+      "updatedAt": "2026-11-04T16:53:17.109Z"
+    },
+    {
+      "id": 22,
+      "title": "Office chair broken (#22)",
+      "description": "Office chair broken. Please check as soon as possible, I have a deadline.",
+      "status": "IN_PROGRESS",
+      "priority": "MEDIUM",
+      "categoryId": 5,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-15T20:01:01.411Z",
+      "updatedAt": "2026-10-15T22:54:18.765Z"
+    },
+    {
+      "id": 23,
+      "title": "Badge not working (#23)",
+      "description": "Badge not working. It started this morning and it blocks my work.",
+      "status": "OPEN",
+      "priority": "LOW",
+      "categoryId": 5,
+      "assigneeId": 1,
+      "reporterId": 5,
+      "createdAt": "2026-09-25T10:48:48.011Z",
+      "updatedAt": "2026-09-28T09:33:47.397Z"
+    },
+    {
+      "id": 24,
+      "title": "Laptop does not boot (#24)",
+      "description": "Laptop does not boot. A colleague has the same issue.",
+      "status": "RESOLVED",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 6,
+      "createdAt": "2026-09-26T19:21:36.129Z",
+      "updatedAt": "2026-10-01T16:20:13.742Z"
+    },
+    {
+      "id": 25,
+      "title": "Monitor flickering (#25)",
+      "description": "Monitor flickering. A colleague has the same issue.",
+      "status": "RESOLVED",
+      "priority": "HIGH",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 4,
+      "createdAt": "2026-10-23T22:17:44.324Z",
+      "updatedAt": "2026-10-26T16:54:32.089Z"
+    },
+    {
+      "id": 26,
+      "title": "Keyboard keys not working (#26)",
+      "description": "Keyboard keys not working. Already tried restarting, no change.",
+      "status": "CLOSED",
+      "priority": "HIGH",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 6,
+      "createdAt": "2026-09-07T04:41:25.061Z",
+      "updatedAt": "2026-09-08T21:46:34.034Z"
+    },
+    {
+      "id": 27,
+      "title": "Printer offline (#27)",
+      "description": "Printer offline. A colleague has the same issue.",
+      "status": "RESOLVED",
+      "priority": "URGENT",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 6,
+      "createdAt": "2026-09-26T13:51:29.714Z",
+      "updatedAt": "2026-09-28T08:21:42.229Z"
+    },
+    {
+      "id": 28,
+      "title": "Docking station not detected (#28)",
+      "description": "Docking station not detected. Please check as soon as possible, I have a deadline.",
+      "status": "OPEN",
+      "priority": "HIGH",
+      "categoryId": 1,
+      "assigneeId": 3,
+      "reporterId": 4,
+      "createdAt": "2026-10-28T15:10:13.559Z",
+      "updatedAt": "2026-11-01T14:37:24.126Z"
+    },
+    {
+      "id": 29,
+      "title": "Battery drains quickly (#29)",
+      "description": "Battery drains quickly. Please check as soon as possible, I have a deadline.",
+      "status": "OPEN",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": 3,
+      "reporterId": 5,
+      "createdAt": "2026-09-27T05:52:00.783Z",
+      "updatedAt": "2026-09-27T12:09:45.737Z"
+    },
+    {
+      "id": 30,
+      "title": "Application crashes on startup (#30)",
+      "description": "Application crashes on startup. Already tried restarting, no change.",
+      "status": "CLOSED",
+      "priority": "LOW",
+      "categoryId": 2,
+      "assigneeId": 3,
+      "reporterId": 6,
+      "createdAt": "2026-09-08T02:52:09.475Z",
+      "updatedAt": "2026-09-10T14:50:05.375Z"
+    },
+    {
+      "id": 31,
+      "title": "Cannot install update (#31)",
+      "description": "Cannot install update. It happens a few times per day, always at random moments.",
+      "status": "CLOSED",
+      "priority": "URGENT",
+      "categoryId": 2,
+      "assigneeId": 3,
+      "reporterId": 4,
+      "createdAt": "2026-10-17T00:35:36.633Z",
+      "updatedAt": "2026-10-17T14:51:27.409Z"
+    },
+    {
+      "id": 32,
+      "title": "Spreadsheet macro fails (#32)",
+      "description": "Spreadsheet macro fails. A colleague has the same issue.",
+      "status": "RESOLVED",
+      "priority": "URGENT",
+      "categoryId": 2,
+      "assigneeId": 3,
+      "reporterId": 5,
+      "createdAt": "2026-10-11T18:45:43.160Z",
+      "updatedAt": "2026-10-16T10:25:16.012Z"
+    },
+    {
+      "id": 33,
+      "title": "Email client slow (#33)",
+      "description": "Email client slow. Already tried restarting, no change.",
+      "status": "RESOLVED",
+      "priority": "LOW",
+      "categoryId": 2,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-18T00:12:58.866Z",
+      "updatedAt": "2026-10-19T04:47:48.914Z"
+    },
+    {
+      "id": 34,
+      "title": "License expired (#34)",
+      "description": "License expired. It happens a few times per day, always at random moments.",
+      "status": "OPEN",
+      "priority": "LOW",
+      "categoryId": 2,
+      "assigneeId": 3,
+      "reporterId": 5,
+      "createdAt": "2026-10-18T14:43:47.466Z",
+      "updatedAt": "2026-10-22T00:56:51.146Z"
+    },
+    {
+      "id": 35,
+      "title": "Browser keeps freezing (#35)",
+      "description": "Browser keeps freezing. It started this morning and it blocks my work.",
+      "status": "CLOSED",
+      "priority": "MEDIUM",
+      "categoryId": 2,
+      "assigneeId": 2,
+      "reporterId": 5,
+      "createdAt": "2026-09-27T00:49:11.583Z",
+      "updatedAt": "2026-09-27T15:38:08.797Z"
+    },
+    {
+      "id": 36,
+      "title": "VPN disconnects every hour (#36)",
+      "description": "VPN disconnects every hour. It happens a few times per day, always at random moments.",
+      "status": "CLOSED",
+      "priority": "URGENT",
+      "categoryId": 3,
+      "assigneeId": null,
+      "reporterId": 6,
+      "createdAt": "2026-10-14T05:33:37.744Z",
+      "updatedAt": "2026-10-15T17:02:02.759Z"
+    },
+    {
+      "id": 37,
+      "title": "Wi-Fi unstable in meeting room (#37)",
+      "description": "Wi-Fi unstable in meeting room. It happens a few times per day, always at random moments.",
+      "status": "CLOSED",
+      "priority": "URGENT",
+      "categoryId": 3,
+      "assigneeId": 1,
+      "reporterId": 6,
+      "createdAt": "2026-09-12T00:46:43.442Z",
+      "updatedAt": "2026-09-13T13:38:41.890Z"
+    },
+    {
+      "id": 38,
+      "title": "Cannot reach shared drive (#38)",
+      "description": "Cannot reach shared drive. It started this morning and it blocks my work.",
+      "status": "RESOLVED",
+      "priority": "LOW",
+      "categoryId": 3,
+      "assigneeId": 1,
+      "reporterId": 4,
+      "createdAt": "2026-09-27T04:56:21.650Z",
+      "updatedAt": "2026-10-01T16:11:05.970Z"
+    },
+    {
+      "id": 39,
+      "title": "Slow internet in the morning (#39)",
+      "description": "Slow internet in the morning. It started this morning and it blocks my work.",
+      "status": "CLOSED",
+      "priority": "LOW",
+      "categoryId": 3,
+      "assigneeId": 3,
+      "reporterId": 4,
+      "createdAt": "2026-10-22T14:12:44.051Z",
+      "updatedAt": "2026-10-26T01:46:55.498Z"
+    },
+    {
+      "id": 40,
+      "title": "Password reset request (#40)",
+      "description": "Password reset request. A colleague has the same issue.",
+      "status": "IN_PROGRESS",
+      "priority": "HIGH",
+      "categoryId": 4,
+      "assigneeId": 1,
+      "reporterId": 4,
+      "createdAt": "2026-09-24T07:18:54.850Z",
+      "updatedAt": "2026-09-29T05:06:22.360Z"
+    },
+    {
+      "id": 41,
+      "title": "Account locked (#41)",
+      "description": "Account locked. Please check as soon as possible, I have a deadline.",
+      "status": "OPEN",
+      "priority": "MEDIUM",
+      "categoryId": 4,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-01T13:56:12.782Z",
+      "updatedAt": "2026-10-04T21:15:58.711Z"
+    },
+    {
+      "id": 42,
+      "title": "Need access to project folder (#42)",
+      "description": "Need access to project folder. A colleague has the same issue.",
+      "status": "RESOLVED",
+      "priority": "URGENT",
+      "categoryId": 4,
+      "assigneeId": 1,
+      "reporterId": 6,
+      "createdAt": "2026-10-26T17:47:56.115Z",
+      "updatedAt": "2026-10-31T11:51:25.734Z"
+    },
+    {
+      "id": 43,
+      "title": "Two-factor code not received (#43)",
+      "description": "Two-factor code not received. It started this morning and it blocks my work.",
+      "status": "RESOLVED",
+      "priority": "URGENT",
+      "categoryId": 4,
+      "assigneeId": 3,
+      "reporterId": 5,
+      "createdAt": "2026-10-03T21:43:07.645Z",
+      "updatedAt": "2026-10-04T08:30:22.380Z"
+    },
+    {
+      "id": 44,
+      "title": "Request for second monitor (#44)",
+      "description": "Request for second monitor. It started this morning and it blocks my work.",
+      "status": "IN_PROGRESS",
+      "priority": "HIGH",
+      "categoryId": 5,
+      "assigneeId": 1,
+      "reporterId": 4,
+      "createdAt": "2026-10-16T10:40:19.702Z",
+      "updatedAt": "2026-10-17T01:55:14.127Z"
+    },
+    {
+      "id": 45,
+      "title": "Office chair broken (#45)",
+      "description": "Office chair broken. It happens a few times per day, always at random moments.",
+      "status": "IN_PROGRESS",
+      "priority": "MEDIUM",
+      "categoryId": 5,
+      "assigneeId": 2,
+      "reporterId": 5,
+      "createdAt": "2026-09-03T04:51:19.146Z",
+      "updatedAt": "2026-09-07T00:26:01.727Z"
+    },
+    {
+      "id": 46,
+      "title": "Badge not working (#46)",
+      "description": "Badge not working. Already tried restarting, no change.",
+      "status": "OPEN",
+      "priority": "HIGH",
+      "categoryId": 5,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-23T10:44:52.369Z",
+      "updatedAt": "2026-10-24T18:03:09.954Z"
+    },
+    {
+      "id": 47,
+      "title": "Laptop does not boot (#47)",
+      "description": "Laptop does not boot. A colleague has the same issue.",
+      "status": "CLOSED",
+      "priority": "HIGH",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 5,
+      "createdAt": "2026-10-30T14:10:30.294Z",
+      "updatedAt": "2026-11-01T16:00:16.355Z"
+    },
+    {
+      "id": 48,
+      "title": "Monitor flickering (#48)",
+      "description": "Monitor flickering. It happens a few times per day, always at random moments.",
+      "status": "RESOLVED",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-24T15:22:13.375Z",
+      "updatedAt": "2026-10-27T13:47:00.001Z"
+    },
+    {
+      "id": 49,
+      "title": "Keyboard keys not working (#49)",
+      "description": "Keyboard keys not working. Please check as soon as possible, I have a deadline.",
+      "status": "RESOLVED",
+      "priority": "HIGH",
+      "categoryId": 1,
+      "assigneeId": 3,
+      "reporterId": 5,
+      "createdAt": "2026-10-13T10:02:16.596Z",
+      "updatedAt": "2026-10-17T09:41:50.236Z"
+    },
+    {
+      "id": 50,
+      "title": "Printer offline (#50)",
+      "description": "Printer offline. Please check as soon as possible, I have a deadline.",
+      "status": "RESOLVED",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": 1,
+      "reporterId": 4,
+      "createdAt": "2026-09-22T12:24:54.476Z",
+      "updatedAt": "2026-09-26T22:54:55.429Z"
+    },
+    {
+      "id": 51,
+      "title": "Docking station not detected (#51)",
+      "description": "Docking station not detected. It started this morning and it blocks my work.",
+      "status": "CLOSED",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": 3,
+      "reporterId": 4,
+      "createdAt": "2026-09-04T00:20:06.061Z",
+      "updatedAt": "2026-09-07T17:00:51.721Z"
+    },
+    {
+      "id": 52,
+      "title": "Battery drains quickly (#52)",
+      "description": "Battery drains quickly. A colleague has the same issue.",
+      "status": "CLOSED",
+      "priority": "MEDIUM",
+      "categoryId": 1,
+      "assigneeId": 3,
+      "reporterId": 4,
+      "createdAt": "2026-09-03T22:17:19.931Z",
+      "updatedAt": "2026-09-06T17:01:31.777Z"
+    },
+    {
+      "id": 53,
+      "title": "Application crashes on startup (#53)",
+      "description": "Application crashes on startup. Please check as soon as possible, I have a deadline.",
+      "status": "IN_PROGRESS",
+      "priority": "MEDIUM",
+      "categoryId": 2,
+      "assigneeId": 3,
+      "reporterId": 6,
+      "createdAt": "2026-10-18T10:29:19.195Z",
+      "updatedAt": "2026-10-19T11:58:53.534Z"
+    },
+    {
+      "id": 54,
+      "title": "Cannot install update (#54)",
+      "description": "Cannot install update. It happens a few times per day, always at random moments.",
+      "status": "OPEN",
+      "priority": "LOW",
+      "categoryId": 2,
+      "assigneeId": 2,
+      "reporterId": 5,
+      "createdAt": "2026-09-18T19:55:46.497Z",
+      "updatedAt": "2026-09-22T02:57:48.956Z"
+    },
+    {
+      "id": 55,
+      "title": "Spreadsheet macro fails (#55)",
+      "description": "Spreadsheet macro fails. Please check as soon as possible, I have a deadline.",
+      "status": "OPEN",
+      "priority": "MEDIUM",
+      "categoryId": 2,
+      "assigneeId": 1,
+      "reporterId": 6,
+      "createdAt": "2026-10-25T05:27:09.008Z",
+      "updatedAt": "2026-10-27T04:38:52.775Z"
+    },
+    {
+      "id": 56,
+      "title": "Email client slow (#56)",
+      "description": "Email client slow. It happens a few times per day, always at random moments.",
+      "status": "RESOLVED",
+      "priority": "LOW",
+      "categoryId": 2,
+      "assigneeId": null,
+      "reporterId": 6,
+      "createdAt": "2026-09-19T00:48:23.432Z",
+      "updatedAt": "2026-09-24T00:21:11.252Z"
+    },
+    {
+      "id": 57,
+      "title": "License expired (#57)",
+      "description": "License expired. A colleague has the same issue.",
+      "status": "RESOLVED",
+      "priority": "MEDIUM",
+      "categoryId": 2,
+      "assigneeId": 1,
+      "reporterId": 4,
+      "createdAt": "2026-09-08T16:48:23.694Z",
+      "updatedAt": "2026-09-13T03:06:57.111Z"
+    },
+    {
+      "id": 58,
+      "title": "Browser keeps freezing (#58)",
+      "description": "Browser keeps freezing. It started this morning and it blocks my work.",
+      "status": "OPEN",
+      "priority": "HIGH",
+      "categoryId": 2,
+      "assigneeId": 2,
+      "reporterId": 4,
+      "createdAt": "2026-10-17T16:27:23.286Z",
+      "updatedAt": "2026-10-19T20:21:59.327Z"
+    },
+    {
+      "id": 59,
+      "title": "VPN disconnects every hour (#59)",
+      "description": "VPN disconnects every hour. Please check as soon as possible, I have a deadline.",
+      "status": "RESOLVED",
+      "priority": "URGENT",
+      "categoryId": 3,
+      "assigneeId": 1,
+      "reporterId": 5,
+      "createdAt": "2026-10-23T00:00:57.606Z",
+      "updatedAt": "2026-10-23T07:57:22.039Z"
+    },
+    {
+      "id": 60,
+      "title": "Wi-Fi unstable in meeting room (#60)",
+      "description": "Wi-Fi unstable in meeting room. A colleague has the same issue.",
+      "status": "RESOLVED",
+      "priority": "MEDIUM",
+      "categoryId": 3,
+      "assigneeId": 2,
+      "reporterId": 5,
+      "createdAt": "2026-09-08T16:13:07.988Z",
+      "updatedAt": "2026-09-11T10:57:08.649Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "ticketId": 1,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Could you share more details?",
+      "createdAt": "2026-09-16T08:22:37.386Z"
+    },
+    {
+      "id": 2,
+      "ticketId": 1,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-16T13:22:37.386Z"
+    },
+    {
+      "id": 3,
+      "ticketId": 1,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-16T18:22:37.386Z"
+    },
+    {
+      "id": 4,
+      "ticketId": 2,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-08T07:34:56.659Z"
+    },
+    {
+      "id": 5,
+      "ticketId": 2,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-08T12:34:56.659Z"
+    },
+    {
+      "id": 6,
+      "ticketId": 3,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-06T15:40:48.810Z"
+    },
+    {
+      "id": 7,
+      "ticketId": 3,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-06T20:40:48.810Z"
+    },
+    {
+      "id": 8,
+      "ticketId": 3,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-07T01:40:48.810Z"
+    },
+    {
+      "id": 9,
+      "ticketId": 5,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-10-03T10:41:44.996Z"
+    },
+    {
+      "id": 10,
+      "ticketId": 5,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-10-03T15:41:44.996Z"
+    },
+    {
+      "id": 11,
+      "ticketId": 5,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-03T20:41:44.996Z"
+    },
+    {
+      "id": 12,
+      "ticketId": 6,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-14T07:48:36.109Z"
+    },
+    {
+      "id": 13,
+      "ticketId": 7,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-10-06T19:57:26.926Z"
+    },
+    {
+      "id": 14,
+      "ticketId": 7,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-07T00:57:26.926Z"
+    },
+    {
+      "id": 15,
+      "ticketId": 8,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-21T05:54:51.861Z"
+    },
+    {
+      "id": 16,
+      "ticketId": 8,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-21T10:54:51.861Z"
+    },
+    {
+      "id": 17,
+      "ticketId": 9,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-09-08T23:16:38.471Z"
+    },
+    {
+      "id": 18,
+      "ticketId": 9,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-09T04:16:38.471Z"
+    },
+    {
+      "id": 19,
+      "ticketId": 10,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-09-08T07:46:26.921Z"
+    },
+    {
+      "id": 20,
+      "ticketId": 10,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-08T12:46:26.921Z"
+    },
+    {
+      "id": 21,
+      "ticketId": 11,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-14T20:18:46.083Z"
+    },
+    {
+      "id": 22,
+      "ticketId": 11,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-15T01:18:46.083Z"
+    },
+    {
+      "id": 23,
+      "ticketId": 12,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-08T18:51:28.734Z"
+    },
+    {
+      "id": 24,
+      "ticketId": 12,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-08T23:51:28.734Z"
+    },
+    {
+      "id": 25,
+      "ticketId": 12,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-09T04:51:28.734Z"
+    },
+    {
+      "id": 26,
+      "ticketId": 13,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-05T20:14:36.561Z"
+    },
+    {
+      "id": 27,
+      "ticketId": 13,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-06T01:14:36.561Z"
+    },
+    {
+      "id": 28,
+      "ticketId": 15,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-10T02:05:29.008Z"
+    },
+    {
+      "id": 29,
+      "ticketId": 16,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-15T02:52:46.529Z"
+    },
+    {
+      "id": 30,
+      "ticketId": 16,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-09-15T07:52:46.529Z"
+    },
+    {
+      "id": 31,
+      "ticketId": 16,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-15T12:52:46.529Z"
+    },
+    {
+      "id": 32,
+      "ticketId": 17,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Looking into it.",
+      "createdAt": "2026-10-26T16:47:05.025Z"
+    },
+    {
+      "id": 33,
+      "ticketId": 18,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-20T04:10:25.713Z"
+    },
+    {
+      "id": 34,
+      "ticketId": 20,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Looking into it.",
+      "createdAt": "2026-10-14T11:24:18.056Z"
+    },
+    {
+      "id": 35,
+      "ticketId": 20,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-14T16:24:18.056Z"
+    },
+    {
+      "id": 36,
+      "ticketId": 20,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-10-14T21:24:18.056Z"
+    },
+    {
+      "id": 37,
+      "ticketId": 21,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-10-30T23:57:06.675Z"
+    },
+    {
+      "id": 38,
+      "ticketId": 23,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Could you share more details?",
+      "createdAt": "2026-09-25T15:48:48.011Z"
+    },
+    {
+      "id": 39,
+      "ticketId": 23,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-25T20:48:48.011Z"
+    },
+    {
+      "id": 40,
+      "ticketId": 23,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-09-26T01:48:48.011Z"
+    },
+    {
+      "id": 41,
+      "ticketId": 24,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-27T00:21:36.129Z"
+    },
+    {
+      "id": 42,
+      "ticketId": 25,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-24T03:17:44.324Z"
+    },
+    {
+      "id": 43,
+      "ticketId": 27,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-09-26T18:51:29.714Z"
+    },
+    {
+      "id": 44,
+      "ticketId": 28,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Looking into it.",
+      "createdAt": "2026-10-28T20:10:13.559Z"
+    },
+    {
+      "id": 45,
+      "ticketId": 28,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Looking into it.",
+      "createdAt": "2026-10-29T01:10:13.559Z"
+    },
+    {
+      "id": 46,
+      "ticketId": 29,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-09-27T10:52:00.783Z"
+    },
+    {
+      "id": 47,
+      "ticketId": 30,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-09-08T07:52:09.475Z"
+    },
+    {
+      "id": 48,
+      "ticketId": 30,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-08T12:52:09.475Z"
+    },
+    {
+      "id": 49,
+      "ticketId": 31,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-10-17T05:35:36.633Z"
+    },
+    {
+      "id": 50,
+      "ticketId": 31,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-10-17T10:35:36.633Z"
+    },
+    {
+      "id": 51,
+      "ticketId": 32,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-11T23:45:43.160Z"
+    },
+    {
+      "id": 52,
+      "ticketId": 32,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-10-12T04:45:43.160Z"
+    },
+    {
+      "id": 53,
+      "ticketId": 33,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-18T05:12:58.866Z"
+    },
+    {
+      "id": 54,
+      "ticketId": 33,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-18T10:12:58.866Z"
+    },
+    {
+      "id": 55,
+      "ticketId": 34,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-18T19:43:47.466Z"
+    },
+    {
+      "id": 56,
+      "ticketId": 36,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-14T10:33:37.744Z"
+    },
+    {
+      "id": 57,
+      "ticketId": 37,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Could you share more details?",
+      "createdAt": "2026-09-12T05:46:43.442Z"
+    },
+    {
+      "id": 58,
+      "ticketId": 37,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-12T10:46:43.442Z"
+    },
+    {
+      "id": 59,
+      "ticketId": 37,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-12T15:46:43.442Z"
+    },
+    {
+      "id": 60,
+      "ticketId": 38,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-27T09:56:21.650Z"
+    },
+    {
+      "id": 61,
+      "ticketId": 39,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-22T19:12:44.051Z"
+    },
+    {
+      "id": 62,
+      "ticketId": 39,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-23T00:12:44.051Z"
+    },
+    {
+      "id": 63,
+      "ticketId": 39,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-10-23T05:12:44.051Z"
+    },
+    {
+      "id": 64,
+      "ticketId": 40,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-24T12:18:54.850Z"
+    },
+    {
+      "id": 65,
+      "ticketId": 40,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Could you share more details?",
+      "createdAt": "2026-09-24T17:18:54.850Z"
+    },
+    {
+      "id": 66,
+      "ticketId": 41,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-01T18:56:12.782Z"
+    },
+    {
+      "id": 67,
+      "ticketId": 42,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-26T22:47:56.115Z"
+    },
+    {
+      "id": 68,
+      "ticketId": 42,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-10-27T03:47:56.115Z"
+    },
+    {
+      "id": 69,
+      "ticketId": 43,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-04T02:43:07.645Z"
+    },
+    {
+      "id": 70,
+      "ticketId": 43,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-04T07:43:07.645Z"
+    },
+    {
+      "id": 71,
+      "ticketId": 43,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Looking into it.",
+      "createdAt": "2026-10-04T12:43:07.645Z"
+    },
+    {
+      "id": 72,
+      "ticketId": 44,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-16T15:40:19.702Z"
+    },
+    {
+      "id": 73,
+      "ticketId": 45,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-09-03T09:51:19.146Z"
+    },
+    {
+      "id": 74,
+      "ticketId": 45,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-03T14:51:19.146Z"
+    },
+    {
+      "id": 75,
+      "ticketId": 47,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-10-30T19:10:30.294Z"
+    },
+    {
+      "id": 76,
+      "ticketId": 47,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-10-31T00:10:30.294Z"
+    },
+    {
+      "id": 77,
+      "ticketId": 47,
+      "authorId": 3,
+      "authorName": "Luca Verdi",
+      "text": "Looking into it.",
+      "createdAt": "2026-10-31T05:10:30.294Z"
+    },
+    {
+      "id": 78,
+      "ticketId": 50,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-09-22T17:24:54.476Z"
+    },
+    {
+      "id": 79,
+      "ticketId": 51,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-04T05:20:06.061Z"
+    },
+    {
+      "id": 80,
+      "ticketId": 51,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-04T10:20:06.061Z"
+    },
+    {
+      "id": 81,
+      "ticketId": 51,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-09-04T15:20:06.061Z"
+    },
+    {
+      "id": 82,
+      "ticketId": 53,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-10-18T15:29:19.195Z"
+    },
+    {
+      "id": 83,
+      "ticketId": 53,
+      "authorId": 4,
+      "authorName": "Anna Neri",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-10-18T20:29:19.195Z"
+    },
+    {
+      "id": 84,
+      "ticketId": 53,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-10-19T01:29:19.195Z"
+    },
+    {
+      "id": 85,
+      "ticketId": 54,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Could you share more details?",
+      "createdAt": "2026-09-19T00:55:46.497Z"
+    },
+    {
+      "id": 86,
+      "ticketId": 54,
+      "authorId": 6,
+      "authorName": "Sara Conti",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-19T05:55:46.497Z"
+    },
+    {
+      "id": 87,
+      "ticketId": 54,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-19T10:55:46.497Z"
+    },
+    {
+      "id": 88,
+      "ticketId": 55,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Escalated to the vendor.",
+      "createdAt": "2026-10-25T10:27:09.008Z"
+    },
+    {
+      "id": 89,
+      "ticketId": 55,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-10-25T15:27:09.008Z"
+    },
+    {
+      "id": 90,
+      "ticketId": 55,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-10-25T20:27:09.008Z"
+    },
+    {
+      "id": 91,
+      "ticketId": 56,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-19T05:48:23.432Z"
+    },
+    {
+      "id": 92,
+      "ticketId": 56,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-19T10:48:23.432Z"
+    },
+    {
+      "id": 93,
+      "ticketId": 57,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "I tried the suggested fix, still not working.",
+      "createdAt": "2026-09-08T21:48:23.694Z"
+    },
+    {
+      "id": 94,
+      "ticketId": 57,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Looking into it.",
+      "createdAt": "2026-09-09T02:48:23.694Z"
+    },
+    {
+      "id": 95,
+      "ticketId": 58,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Could you share more details?",
+      "createdAt": "2026-10-17T21:27:23.286Z"
+    },
+    {
+      "id": 96,
+      "ticketId": 58,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-18T02:27:23.286Z"
+    },
+    {
+      "id": 97,
+      "ticketId": 58,
+      "authorId": 5,
+      "authorName": "Paolo Gallo",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-10-18T07:27:23.286Z"
+    },
+    {
+      "id": 98,
+      "ticketId": 59,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Works now, thanks!",
+      "createdAt": "2026-10-23T05:00:57.606Z"
+    },
+    {
+      "id": 99,
+      "ticketId": 59,
+      "authorId": 2,
+      "authorName": "Giulia Bianchi",
+      "text": "Waiting for the replacement part.",
+      "createdAt": "2026-10-23T10:00:57.606Z"
+    },
+    {
+      "id": 100,
+      "ticketId": 60,
+      "authorId": 1,
+      "authorName": "Mario Rossi",
+      "text": "Could you share more details?",
+      "createdAt": "2026-09-08T21:13:07.988Z"
+    }
+  ]
+}
