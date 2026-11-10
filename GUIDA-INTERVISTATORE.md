@@ -69,3 +69,5 @@ Segnali d'allarme: codice che non sa spiegare, `any` ovunque, subscribe annidati
 ## Dopo il colloquio
 
 Copia il progetto del candidato in uno zip per rivederlo con calma prima della decisione.
+
+Per la revisione, estrai il progetto in `valutazioni/<cognome>-<data>/progetto/` (la cartella è gitignorata) e lancia Claude Code in questo repo con la skill `valutazione-candidato`, allegando le note della demo e della code review. La skill esegue build e test, applica la griglia di questa guida e scrive il report in `valutazioni/<cognome>-<data>/valutazione.md`.
