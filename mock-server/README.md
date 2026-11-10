@@ -11,6 +11,8 @@ npm start
 
 Il server ascolta su `http://localhost:3000`. CORS è aperto, quindi puoi chiamarlo direttamente da `http://localhost:4200`.
 
+La documentazione interattiva (Swagger UI) è su `http://localhost:3000/docs`: fai il login da lì, copia il token nel pulsante **Authorize** e prova gli endpoint. La specifica OpenAPI è su `http://localhost:3000/openapi.json`.
+
 ## Regole generali
 
 - Ogni risposta arriva con una latenza casuale di 200-800 ms.
@@ -44,7 +46,7 @@ Utente associato al token.
 
 ### GET /api/users
 
-Elenco utenti (per assegnatario e filtri): `[{ "id": 1, "username": "mario.rossi", "fullName": "Mario Rossi", "role": "AGENT" }, ...]`. `role` è `AGENT` o `REQUESTER`.
+Elenco utenti (per assegnatario e filtri): `[{ "id": 1, "username": "mario.rossi", "fullName": "Mario Rossi", "role": "AGENT" }, ...]`. `role` è `AGENT` o `REQUESTER`. Come assegnatario di un ticket il server accetta qualunque utente esistente, `REQUESTER` compresi.
 
 ### GET /api/categories
 

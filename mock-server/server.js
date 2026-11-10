@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const swaggerUi = require('swagger-ui-express');
+const openapi = require('./openapi.json');
 
 const PORT = 3000;
 const STATUSES = ['OPEN', 'IN_PROGRESS', 'RESOLVED', 'CLOSED'];
@@ -26,6 +28,10 @@ let nextCommentId = Math.max(...comments.map((c) => c.id)) + 1;
 const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json());
+
+// API documentation: registered before the latency middleware so the UI assets load fast.
+app.get('/openapi.json', (req, res) => res.json(openapi));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(openapi, { swaggerOptions: { persistAuthorization: true } }));
 
 // Random latency on every response
 app.use((req, res, next) => {
@@ -198,4 +204,14 @@ app.get('/api/stats', (req, res) => {
 
 app.use('/api', (req, res) => res.status(404).json({ message: 'Not found' }));
 
-app.listen(PORT, () => console.log(`Mock server listening on http://localhost:${PORT}`));
+// Final error handler: keeps the documented error shape (e.g. malformed JSON bodies).
+app.use((err, req, res, next) => {
+  if (res.headersSent) return next(err);
+  if (err.type === 'entity.parse.failed') return res.status(400).json({ message: 'Malformed JSON body' });
+  res.status(500).json({ message: 'Unexpected server error' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Mock server listening on http://localhost:${PORT}`);
+  console.log(`API docs on http://localhost:${PORT}/docs`);
+});

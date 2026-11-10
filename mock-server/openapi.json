@@ -1,0 +1,480 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Helpdesk mock API",
+    "version": "1.0.0",
+    "description": "Server finto per la prova pratica. I dati stanno in memoria e a ogni avvio si riparte dai dati iniziali. Ogni risposta arriva con una latenza casuale di 200-800 ms. Tutte le route tranne il login richiedono `Authorization: Bearer <token>`: ottieni il token dal login e usa il pulsante Authorize."
+  },
+  "servers": [{ "url": "http://localhost:3000" }],
+  "security": [{ "bearerAuth": [] }],
+  "tags": [
+    { "name": "Auth" },
+    { "name": "Lookup" },
+    { "name": "Tickets" },
+    { "name": "Comments" },
+    { "name": "Stats" }
+  ],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Login",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LoginRequest" },
+              "example": { "username": "mario.rossi", "password": "password" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Credenziali corrette",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LoginResponse" } } }
+          },
+          "401": { "$ref": "#/components/responses/InvalidCredentials" }
+        }
+      }
+    },
+    "/api/me": {
+      "get": {
+        "tags": ["Auth"],
+        "summary": "Utente associato al token",
+        "responses": {
+          "200": {
+            "description": "Utente corrente",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/User" } } }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "tags": ["Lookup"],
+        "summary": "Elenco utenti",
+        "description": "Per assegnatario e filtri. Come assegnatario di un ticket il server accetta qualunque utente esistente, `REQUESTER` compresi.",
+        "responses": {
+          "200": {
+            "description": "Utenti",
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/User" } }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/api/categories": {
+      "get": {
+        "tags": ["Lookup"],
+        "summary": "Elenco categorie",
+        "responses": {
+          "200": {
+            "description": "Categorie",
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Category" } }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/api/tickets": {
+      "get": {
+        "tags": ["Tickets"],
+        "summary": "Lista ticket paginata",
+        "description": "Tutti i parametri sono opzionali. Una pagina oltre il totale risponde con `items` vuoto.",
+        "parameters": [
+          { "name": "page", "in": "query", "description": "Parte da 1", "schema": { "type": "integer", "minimum": 1, "default": 1 } },
+          { "name": "pageSize", "in": "query", "description": "Massimo 100", "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 10 } },
+          { "name": "status", "in": "query", "schema": { "$ref": "#/components/schemas/TicketStatus" } },
+          { "name": "priority", "in": "query", "schema": { "$ref": "#/components/schemas/TicketPriority" } },
+          { "name": "categoryId", "in": "query", "schema": { "type": "integer" } },
+          { "name": "assigneeId", "in": "query", "schema": { "type": "integer" } },
+          { "name": "search", "in": "query", "description": "Cerca in titolo e descrizione", "schema": { "type": "string" } },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Campo e direzione separati da virgola. Campi: `createdAt`, `updatedAt`, `title`, `priority`. Direzione: `asc` o `desc`.",
+            "schema": { "type": "string", "pattern": "^(createdAt|updatedAt|title|priority),(asc|desc)$", "default": "createdAt,desc" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pagina di ticket",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TicketPage" } } }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      },
+      "post": {
+        "tags": ["Tickets"],
+        "summary": "Crea un ticket",
+        "description": "Il ticket nasce nello stato `OPEN`; il segnalante è l'utente del token.",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TicketInput" } } }
+        },
+        "responses": {
+          "201": {
+            "description": "Ticket creato",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Ticket" } } }
+          },
+          "400": { "$ref": "#/components/responses/ValidationFailed" },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/api/tickets/{id}": {
+      "parameters": [{ "$ref": "#/components/parameters/TicketId" }],
+      "get": {
+        "tags": ["Tickets"],
+        "summary": "Dettaglio ticket",
+        "responses": {
+          "200": {
+            "description": "Ticket",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Ticket" } } }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/TicketNotFound" }
+        }
+      },
+      "put": {
+        "tags": ["Tickets"],
+        "summary": "Modifica un ticket",
+        "description": "Stesso body e stessa validazione del `POST`. Lo stato non si cambia da qui.",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TicketInput" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "Ticket aggiornato",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Ticket" } } }
+          },
+          "400": { "$ref": "#/components/responses/ValidationFailed" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/TicketNotFound" },
+          "409": {
+            "description": "Il ticket è `CLOSED` e non può essere modificato",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "message": "A closed ticket cannot be modified" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tickets/{id}/status": {
+      "parameters": [{ "$ref": "#/components/parameters/TicketId" }],
+      "patch": {
+        "tags": ["Tickets"],
+        "summary": "Cambia lo stato di un ticket",
+        "description": "Passaggi ammessi: `OPEN → IN_PROGRESS`, `IN_PROGRESS → RESOLVED`, `RESOLVED → IN_PROGRESS`, `RESOLVED → CLOSED`.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/StatusChange" },
+              "example": { "status": "IN_PROGRESS" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ticket aggiornato",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Ticket" } } }
+          },
+          "400": {
+            "description": "Stato sconosciuto",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": {
+                  "message": "Validation failed",
+                  "errors": { "status": ["Status must be one of OPEN, IN_PROGRESS, RESOLVED, CLOSED"] }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/TicketNotFound" },
+          "422": {
+            "description": "Passaggio di stato non ammesso; il motivo è in `message`",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "message": "Transition from OPEN to CLOSED is not allowed" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tickets/{id}/comments": {
+      "parameters": [{ "$ref": "#/components/parameters/TicketId" }],
+      "get": {
+        "tags": ["Comments"],
+        "summary": "Commenti del ticket",
+        "description": "Dal più vecchio al più recente.",
+        "responses": {
+          "200": {
+            "description": "Commenti",
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Comment" } }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/TicketNotFound" }
+        }
+      },
+      "post": {
+        "tags": ["Comments"],
+        "summary": "Aggiunge un commento",
+        "description": "L'autore è l'utente del token.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CommentInput" },
+              "example": { "text": "Looking into it." }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Commento creato",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Comment" } } }
+          },
+          "400": {
+            "description": "Testo vuoto",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "message": "Validation failed", "errors": { "text": ["Text is required"] } }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/TicketNotFound" }
+        }
+      }
+    },
+    "/api/stats": {
+      "get": {
+        "tags": ["Stats"],
+        "summary": "Statistiche sui ticket",
+        "description": "Questo endpoint risponde `500` in circa un quarto delle chiamate. È voluto.",
+        "responses": {
+          "200": {
+            "description": "Conteggi per stato e priorità",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Stats" } } }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "500": {
+            "description": "Errore casuale",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" },
+                "example": { "message": "Unexpected server error" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": { "type": "http", "scheme": "bearer", "description": "Token ottenuto da `POST /api/auth/login`." }
+    },
+    "parameters": {
+      "TicketId": { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "Token assente o non valido",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" },
+            "example": { "message": "Unauthorized" }
+          }
+        }
+      },
+      "InvalidCredentials": {
+        "description": "Credenziali errate",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" },
+            "example": { "message": "Invalid credentials" }
+          }
+        }
+      },
+      "TicketNotFound": {
+        "description": "Il ticket non esiste",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" },
+            "example": { "message": "Ticket not found" }
+          }
+        }
+      },
+      "ValidationFailed": {
+        "description": "Dati non validi, con i messaggi per campo in `errors`",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" },
+            "example": {
+              "message": "Validation failed",
+              "errors": { "title": ["Title must be between 5 and 100 characters"] }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "TicketStatus": { "type": "string", "enum": ["OPEN", "IN_PROGRESS", "RESOLVED", "CLOSED"] },
+      "TicketPriority": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "URGENT"] },
+      "Error": {
+        "type": "object",
+        "required": ["message"],
+        "properties": {
+          "message": { "type": "string" },
+          "errors": {
+            "type": "object",
+            "description": "Solo sui `400`: messaggi per campo.",
+            "additionalProperties": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "required": ["id", "username", "fullName", "role"],
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "username": { "type": "string", "example": "mario.rossi" },
+          "fullName": { "type": "string", "example": "Mario Rossi" },
+          "role": { "type": "string", "enum": ["AGENT", "REQUESTER"] }
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "required": ["username", "password"],
+        "properties": {
+          "username": { "type": "string" },
+          "password": { "type": "string" }
+        }
+      },
+      "LoginResponse": {
+        "type": "object",
+        "required": ["token", "user"],
+        "properties": {
+          "token": { "type": "string" },
+          "user": { "$ref": "#/components/schemas/User" }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": { "type": "integer", "example": 1 },
+          "name": { "type": "string", "example": "Hardware" }
+        }
+      },
+      "Ticket": {
+        "type": "object",
+        "required": ["id", "title", "description", "status", "priority", "categoryId", "assigneeId", "reporterId", "createdAt", "updatedAt"],
+        "properties": {
+          "id": { "type": "integer", "example": 7 },
+          "title": { "type": "string", "example": "Printer offline (#7)" },
+          "description": { "type": "string" },
+          "status": { "$ref": "#/components/schemas/TicketStatus" },
+          "priority": { "$ref": "#/components/schemas/TicketPriority" },
+          "categoryId": { "type": "integer" },
+          "assigneeId": { "type": "integer", "nullable": true },
+          "reporterId": { "type": "integer" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "TicketInput": {
+        "type": "object",
+        "required": ["title", "description", "priority", "categoryId"],
+        "properties": {
+          "title": { "type": "string", "minLength": 5, "maxLength": 100, "description": "Da 5 a 100 caratteri, dopo il trim." },
+          "description": { "type": "string", "description": "Obbligatoria." },
+          "priority": { "$ref": "#/components/schemas/TicketPriority" },
+          "categoryId": { "type": "integer", "description": "Deve esistere." },
+          "assigneeId": { "type": "integer", "nullable": true, "description": "Facoltativo; se presente deve esistere." }
+        },
+        "example": {
+          "title": "Printer offline",
+          "description": "It started this morning and it blocks my work.",
+          "priority": "HIGH",
+          "categoryId": 1,
+          "assigneeId": 2
+        }
+      },
+      "TicketPage": {
+        "type": "object",
+        "required": ["items", "total", "page", "pageSize"],
+        "properties": {
+          "items": { "type": "array", "items": { "$ref": "#/components/schemas/Ticket" } },
+          "total": { "type": "integer", "example": 60 },
+          "page": { "type": "integer", "example": 1 },
+          "pageSize": { "type": "integer", "example": 10 }
+        }
+      },
+      "StatusChange": {
+        "type": "object",
+        "required": ["status"],
+        "properties": { "status": { "$ref": "#/components/schemas/TicketStatus" } }
+      },
+      "Comment": {
+        "type": "object",
+        "required": ["id", "ticketId", "authorId", "authorName", "text", "createdAt"],
+        "properties": {
+          "id": { "type": "integer" },
+          "ticketId": { "type": "integer" },
+          "authorId": { "type": "integer" },
+          "authorName": { "type": "string" },
+          "text": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "CommentInput": {
+        "type": "object",
+        "required": ["text"],
+        "properties": { "text": { "type": "string", "description": "Obbligatorio, non vuoto dopo il trim." } }
+      },
+      "Stats": {
+        "type": "object",
+        "required": ["total", "byStatus", "byPriority"],
+        "properties": {
+          "total": { "type": "integer", "example": 60 },
+          "byStatus": {
+            "type": "object",
+            "additionalProperties": { "type": "integer" },
+            "example": { "OPEN": 15, "IN_PROGRESS": 15, "RESOLVED": 15, "CLOSED": 15 }
+          },
+          "byPriority": {
+            "type": "object",
+            "additionalProperties": { "type": "integer" },
+            "example": { "LOW": 14, "MEDIUM": 16, "HIGH": 15, "URGENT": 15 }
+          }
+        }
+      }
+    }
+  }
+}

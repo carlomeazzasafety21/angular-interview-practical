@@ -5,7 +5,7 @@ Costruisci da zero un'applicazione Angular per gestire i ticket di un helpdesk, 
 ## Come iniziare
 
 1. Apri un terminale in `mock-server` e lancia `npm start` (le dipendenze sono già installate). Il server ascolta su `http://localhost:3000`.
-2. La documentazione degli endpoint è in `mock-server/README.md`.
+2. La documentazione degli endpoint è in `mock-server/README.md` e, da provare nel browser, su `http://localhost:3000/docs`.
 3. Crea il progetto Angular fuori da `mock-server`, nella cartella `C:\Prova\`.
 4. Utente di prova: `mario.rossi` / `password`.
 
